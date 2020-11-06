@@ -1,0 +1,1027 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Monserrat";
+  src: url("../font/Montserrat-Regular.woff2") format("woff2"),
+    url("../font/Montserrat-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MonserratBold";
+  src: url("../font/Montserrat-Bold.woff2") format("woff2"),
+    url("../font/Montserrat-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Переменные для Заголовков, Меню, Описания и Фона */
+:root {
+  --font-title: 48px;
+  --font-menu: 18px;
+  --font-description: 16px;
+  --bg-btn: #ff9900;
+}
+
+html,
+body {
+  min-width: 1920px;
+  margin: 0;
+  padding: 0;
+  background-color: #e5e5e5;
+  font-family: "Monserrat", sans-serif, Arial;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* Стилизация контейнера */
+.container {
+  width: 1770px;
+  margin: 0 auto;
+}
+
+/* Стилизация кнопок */
+.btn {
+  width: 280px;
+  height: 80px;
+  color: #fff;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  background-color: var(--bg-btn);
+}
+
+/* Стилизация заголовков секций */
+.section__title {
+  font-size: var(--font-title);
+  font-weight: 400;
+}
+
+.section__subtitle {
+  margin: 0;
+  font-size: 24px;
+  font-family: "MonserratBold";
+}
+a:hover {
+  cursor: pointer;
+}
+/* Стилизация секции Header */
+.header__container {
+  display: flex;
+  height: 100px;
+}
+
+.header__block {
+  display: flex;
+  align-items: center;
+  flex-basis: 50%;
+}
+
+.header__burger {
+  display: none;
+}
+
+.header__nav {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.header__list {
+  display: flex;
+  width: 700px;
+  height: 100%;
+  align-items: center;
+  margin-top: 0;
+  margin-left: 70px;
+}
+
+.header__item:not(:last-child) {
+  margin-right: 83px;
+}
+
+.header__link {
+  font-size: calc(var(--font-menu) - 1px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding-bottom: 2px;
+  color: #333;
+}
+
+.header__link:hover {
+  border-bottom: 2px solid var(--bg-btn);
+}
+
+.search {
+  display: block;
+  height: 25px;
+  width: 25px;
+  margin: 0 12px;
+  background-image: url("../img/search.svg");
+}
+
+.search:hover {
+  background-image: url("../img/search_hover.svg");
+}
+
+/* Стилизация Главной секции */
+.first-section__container {
+  display: flex;
+  flex-direction: column;
+  flex: 0 2 100%;
+  height: 620px;
+  padding: 103px 0 0 78px;
+  background-image: url("../img/banner.jpg");
+  background-repeat: no-repeat;
+}
+
+.first-section__block {
+  width: 842px;
+  margin-bottom: 75px;
+}
+
+.first-section__title {
+  margin: 0;
+  font-size: 72px;
+  line-height: 85.79px;
+  font-family: "MonserratBold";
+  color: #fff;
+}
+
+.first-section__description {
+  margin-top: 25px;
+  font-size: 25px;
+  color: #fff;
+  line-height: 27.6px;
+  font-weight: 700;
+}
+
+.first-section__btn {
+  display: block;
+}
+
+/* Стилизация секции О нас */
+.about-us {
+  margin: 102px 0 25px 0;
+}
+
+.about-us__description {
+  max-width: 1235px;
+  font-size: var(--font-description);
+  line-height: 32px;
+}
+
+.about-us__icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-weight: 600;
+  margin-left: 3px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10px;
+  background-color: var(--bg-btn);
+}
+
+.about-us__block {
+  display: flex;
+  margin-top: 45px;
+}
+
+/* Стилизация блока с картинкой в Секции О нас */
+.about-us__banner {
+  display: flex;
+  flex-basis: 50%;
+  align-items: flex-end;
+  max-width: 870px;
+  height: 622px;
+  background-image: url("../img/about-us-banner.jpg");
+}
+
+.about-us__description-banner {
+  display: flex;
+  padding: 22px 0 42px 54px;
+  height: 176px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.about-us__banner-content {
+  font-size: calc(var(--font-description) + 1px);
+  line-height: 32px;
+  font-weight: 700;
+  color: #fff;
+  width: 502px;
+}
+
+.about-us__btn {
+  display: flex;
+  margin: 35px 15px 0 70px;
+  align-items: center;
+  justify-content: center;
+  width: 175px;
+  height: 60px;
+  font-size: var(--font-description);
+  background-color: rgba(0, 0, 0, 0);
+  border: 3px solid var(--bg-btn);
+}
+
+.about-us__btn:hover {
+  background-color: var(--bg-btn);
+}
+/* Стилизация преимуществ в секции О нас */
+.about-us__content {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 50%;
+  margin-left: 30px;
+}
+
+.about-us__element {
+  display: flex;
+  padding: 67px 0 60px 63px;
+  border: 1px solid #cacaca;
+  flex: 0 2 50%;
+}
+
+.about-us__element:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.about-us__element-content {
+  width: 460px;
+  line-height: 32px;
+}
+
+.about-us__element-description {
+  margin: 0;
+}
+
+.about-us__img {
+  transform: translateY(-15px);
+  margin-right: 60px;
+}
+
+/* Стилизация секции Как мы работаем */
+.our-work {
+  margin: 96px 0 55px 0;
+}
+
+.our-work__steps {
+  display: inline-block;
+  margin-bottom: 48px;
+}
+
+.our-work__step-item:not(:last-child) {
+  margin-right: 89px;
+}
+
+.our-work__step-link {
+  color: #333;
+  font-size: calc(var(--font-description) + 2px);
+}
+
+.our-work__step-link:hover {
+  color: var(--bg-btn);
+}
+
+.our-work__step-link_active {
+  color: var(--bg-btn);
+}
+
+.our-work__block {
+  display: flex;
+}
+
+.our-work__element {
+  flex-basis: 50%;
+}
+
+.out-work__element:last-child {
+  margin-right: 20px;
+}
+
+.our-work__description {
+  width: 758px;
+  margin-top: 4px;
+  font-size: var(--font-description);
+  line-height: 32.45px;
+}
+
+.our-work__block-btn {
+  margin-top: 69px;
+}
+
+.our-work__btn {
+  margin: 0px 21px 0px 2px;
+  border: none;
+  font-size: var(--font-description);
+  height: 59px;
+  width: 177px;
+}
+
+.our-work__btn:last-child {
+  width: 147px;
+  height: 59px;
+  padding-top: 16px;
+  padding-bottom: 6px;
+  font-size: 16px;
+  color: #000;
+  border: 1px solid #000;
+  background-color: #e5e5e5;
+}
+
+.our-work__img {
+  background: url("../img/our-work-img.jpg") no-repeat 17px 9px;
+}
+
+/* Стилизация секции Часто задаваемые вопросы */
+.question__container {
+  margin-top: 100px;
+}
+
+/* Убираем стандартный маркер Chrome */
+details summary::-webkit-details-marker {
+  display: none;
+}
+/* Убираем стандартный маркер Firefox */
+details > summary {
+  list-style: none;
+}
+
+.question__item {
+  display: flex;
+  height: 114px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #cacaca;
+  padding-left: 4px;
+}
+
+.question__item:focus {
+  outline: none;
+}
+
+.question__btn-text {
+  cursor: pointer;
+  color: #333;
+}
+
+.question__btn-text:hover {
+  color: var(--bg-btn);
+}
+
+.question__card-body {
+  color: #333;
+  font-size: var(--font-description);
+  line-height: 32px;
+}
+
+.question__icon {
+  display: block;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-image: url("../img/question-icon.svg");
+}
+
+.question__icon:hover {
+  background-image: url("../img/question-icon_hover.svg");
+}
+/* Стилизация Footer */
+.footer {
+  padding: 49px 0 77px 0;
+  background-color: #222;
+  margin-top: 100px;
+}
+
+.footer__container {
+  display: flex;
+}
+
+.footer__block {
+  flex-basis: 33.33%;
+}
+
+.footer__item {
+  margin-bottom: 16px;
+}
+
+.footer__link {
+  color: #cacaca;
+  font-size: calc(var(--font-description) + 2px);
+}
+
+.footer__social {
+  display: flex;
+  margin-top: 118px;
+}
+
+.footer__icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 25px;
+}
+
+.footer__social-facebook {
+  background-image: url("../img/fb.svg");
+}
+
+.footer__social-vk {
+  background-image: url("../img/vk.svg");
+}
+
+.footer__social-instagramm {
+  background-image: url("../img/inst.svg");
+}
+
+.footer__block_indent {
+  padding-left: 10px;
+}
+
+.footer__title {
+  margin: 13px 0 24px 0;
+  color: #cacaca;
+}
+
+.footer__input {
+  padding-left: 24px;
+  width: 571px;
+  height: 60px;
+  margin-bottom: 25px;
+  background-color: #414141;
+}
+
+.footer__input::placeholder {
+  color: #fff;
+}
+
+#footer__msg {
+  padding-top: 21px;
+  height: 150px;
+}
+
+.footer__btn_size {
+  padding-top: 23px;
+  width: 271px;
+  height: 63px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.footer__input_check {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.footer__check_label {
+  color: #cacaca;
+  font-size: 16px;
+}
+
+.footer__input_check + label::before {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin: 0px 5px 0px 19px;
+  border: 1px solid #cacaca;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+.footer__input_check:checked + label::before {
+  background-color: #222;
+  background-image: url("../img/checked.svg");
+}
+
+.footer__block_position {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 26px;
+}
+
+.footer__description {
+  width: 363px;
+  color: #cacaca;
+  font-size: var(--font-description);
+  line-height: 33px;
+}
+
+/* Адаптация */
+/* 1919 */
+@media (max-width: 1919px) {
+  .container {
+    width: 1400px;
+  }
+  .footer__btn_size {
+    width: 260px;
+  }
+}
+
+/* 1439px */
+@media (max-width: 1439px) {
+  .container {
+    width: 1100px;
+  }
+  .about-us__block {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .about-us__banner {
+    flex-basis: 100%;
+  }
+  .about-us__content {
+    flex-basis: 100%;
+    margin-top: 50px;
+    margin-left: 0;
+  }
+  .our-work__img {
+    background-position: 50% 0;
+    background-size: cover;
+  }
+  .our-work__consultation {
+    max-width: 50%;
+  }
+  .our-work__description {
+    max-width: 100%;
+  }
+  .footer__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer__block_position {
+    display: none;
+  }
+}
+
+/* 1199px */
+@media (max-width: 1199px) {
+  .container {
+    width: 924px;
+  }
+  /* Header */
+  .header__container {
+    align-items: center;
+  }
+  .header__burger {
+    display: block;
+    margin-left: 2px;
+    width: 33px;
+    height: 23px;
+    background-image: url("../img/burger.svg");
+  }
+  .header__list {
+    display: none;
+    width: 0;
+  }
+  .header__block_position {
+    margin-left: 20px;
+  }
+  .header_img {
+    width: 150px;
+  }
+  .header__block_position {
+    flex-basis: 63%;
+    justify-content: flex-end;
+  }
+  .search {
+    margin-right: 0px;
+  }
+  .first-section__container {
+    padding: 157px 0 0 45px;
+    height: 668px;
+    background-size: cover;
+  }
+  .first-section__block {
+    width: 708px;
+    margin-bottom: 88px;
+  }
+  .first-section__title {
+    font-size: 61px;
+    line-height: 76.79px;
+  }
+  .first-section__description {
+    margin-top: 6px;
+    font-size: 20px;
+    line-height: 25.6px;
+  }
+  .first-section__button {
+    width: 287px;
+  }
+  /* О нас */
+  .about-us {
+    margin: 61px 0 25px 0;
+  }
+  .about-us__block {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 61px;
+  }
+  .about-us__banner {
+    flex-basis: 100%;
+    max-width: 100%;
+    height: 640px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+  }
+  .about-us__description-banner {
+    padding: 23px 0 42px 46px;
+    height: 174px;
+    justify-content: space-between;
+  }
+  .about-us__banner-content {
+    font-size: var(--font-description);
+    width: 487px;
+  }
+  .about-us__btn {
+    margin-right: 50px;
+  }
+  /* Стилизация преимуществ в секции О нас */
+  .about-us__content {
+    flex-basis: 100%;
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+  .about-us__element {
+    padding: 65px 0 65px 112px;
+  }
+  .about-us__element:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  .about-us__img {
+    transform: translateY(0px);
+  }
+  .about-us__element-description {
+    margin-top: 3px;
+  }
+  .our-work {
+    margin: 61px 0 51px 0;
+  }
+  .our-work__img {
+    width: 437px;
+    height: 688px;
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+  .our-work__description {
+    margin-top: 6px;
+    width: 421px;
+  }
+  .our-work__block-btn {
+    margin-top: 30px;
+  }
+  .question__container {
+    margin-top: 0px;
+  }
+  .question__title {
+    margin-top: 60px;
+  }
+  .question__item {
+    font-size: 20px;
+    margin-top: 0;
+    padding: 18px 0 0 3px;
+  }
+  .question__btn-text {
+    width: 747px;
+    margin-top: 17px;
+    line-height: 32px;
+  }
+  .footer {
+    margin-top: 70px;
+  }
+  .footer__block {
+    flex-basis: 50%;
+  }
+  .footer__block_indent {
+    padding-left: 0;
+  }
+  .footer__input {
+    width: 535px;
+  }
+  .footer__btn_size {
+    width: 245px;
+  }
+  .footer__input_check + label::before {
+    margin-left: 9px;
+    width: 12px;
+    height: 12px;
+    transform: translateY(-3px);
+  }
+  .footer__check_label {
+    font-size: 15px;
+  }
+  .footer__social {
+    margin-top: 112px;
+  }
+}
+
+/* 1023px */
+@media (max-width: 1023px) {
+  .container {
+    width: 700px;
+  }
+  /* Главная секция */
+  .first-section__container {
+    height: 627px;
+    padding: 157px 0 0 0px;
+  }
+
+  .first-section__block {
+    padding-left: 23px;
+    width: 842px;
+    margin-bottom: 88px;
+  }
+
+  .first-section__title {
+    font-size: 57px;
+    line-height: 76.79px;
+  }
+
+  .first-section__description {
+    width: 658px;
+    margin-top: 6px;
+    font-size: 20px;
+    line-height: 25.6px;
+  }
+  .first-section__button {
+    align-self: center;
+  }
+
+  .about-us__description-banner {
+    padding: 23px 0 42px 33px;
+  }
+  .about-us__banner-content {
+    width: 592px;
+  }
+  .about-us__element {
+    padding-left: 45px;
+  }
+  .about-us__img {
+    margin-right: 40px;
+  }
+  /* Стилизация секции Как мы работаем */
+  .our-work {
+    margin: 50px 0 50px 0;
+  }
+  .our-work__block {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .our-work__element {
+    display: flex;
+    flex: 0 1 100%;
+    flex-direction: column;
+  }
+  .our-work__consultation {
+    max-width: 100%;
+  }
+  .our-work__description {
+    width: 758px;
+    margin-top: 4px;
+    font-size: var(--font-description);
+    line-height: 32.45px;
+  }
+  .our-work__img {
+    display: block;
+    width: 100%;
+    min-height: 284px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    background-size: cover;
+  }
+  .our-work__block-btn {
+    margin-top: 30px;
+  }
+  /* Часто задаваемые вопросы */
+  .question__container {
+    margin-top: 60px;
+  }
+  .question__item {
+    padding-top: 20px;
+  }
+  .question__btn-text {
+    width: 500px;
+    font-size: 18px;
+  }
+  .question__icon {
+    margin-top: 2px;
+    margin-right: 16px;
+  }
+  /* Footer */
+  .footer {
+    margin-top: 70px;
+    padding-left: 0px;
+  }
+  .footer__container {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .footer__block {
+    flex-basis: 100%;
+  }
+  .footer__list {
+    display: none;
+  }
+  .footer__social {
+    margin-top: 50px;
+  }
+  .footer__input {
+    width: 537px;
+    margin-right: 15px;
+  }
+  .footer__btn_size {
+    width: 246px;
+  }
+  .footer__form {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer__block_indent {
+    margin-bottom: 58px;
+  }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+  .container {
+    width: 673px;
+  }
+  .header__container {
+    height: 69px;
+  }
+  .header__block {
+    display: flex;
+    align-items: center;
+  }
+  .header__block_position {
+    margin-left: 50px;
+  }
+  .header__burger {
+    width: 40px;
+    margin-bottom: 3px;
+  }
+  .search {
+    width: 28px;
+    margin-left: 0;
+  }
+
+  /* главная секция */
+  .first-section__container {
+    width: 768px;
+    height: 700px;
+    padding-top: 0;
+    padding-left: 50px;
+  }
+  .first-section__block {
+    height: 72%;
+    padding-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .first-section__title {
+    margin-top: 100px;
+    font-size: 60px;
+    line-height: 74px;
+  }
+  .first-section__description {
+    width: 658px;
+    letter-spacing: 1.5px;
+    margin-top: 8px;
+    font-size: 18px;
+  }
+  .first-section__button {
+    align-self: flex-start;
+  }
+
+  /* Секция О нас */
+  .about-us__description {
+    width: 100%;
+  }
+  .about-us__block {
+    margin-top: 61px;
+  }
+  .about-us__banner {
+    margin-bottom: 0;
+    height: 649px;
+  }
+  .about-us__description-banner {
+    height: 165px;
+    padding-top: 16px;
+  }
+  .about-us__banner-content {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 31px;
+    letter-spacing: 0.5px;
+  }
+  .about-us__btn {
+    width: 251px;
+    margin: 35px 33px 0 30px;
+  }
+  .about-us__content {
+    margin-top: 40px;
+  }
+  .about-us__element {
+    height: 235px;
+    padding: 36px 0px 0px 31px;
+  }
+  .about-us__element:not(:last-child) {
+    margin-bottom: 41px;
+  }
+  .about-us__img {
+    width: 117px;
+    transform: translateY(-22px);
+    margin-right: 30px;
+  }
+  /* Секция Как мы работаем */
+  .our-work {
+    margin-top: 62px;
+  }
+  .our-work__title {
+    margin-bottom: 50px;
+  }
+  .our-work__steps {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.5px;
+    width: 100%;
+    margin-bottom: 35px;
+  }
+  .our-work__description {
+    margin-top: 7px;
+  }
+  .our-work__block-btn {
+    margin-top: 16px;
+  }
+  /* Секция Часто задаваемыые вопросы */
+  .question__title {
+    width: 100%;
+    font-size: calc(var(--font-title) - 2px);
+    margin-top: 62px;
+    letter-spacing: 0.3px;
+    margin-left: 2px;
+    margin-bottom: 49px;
+  }
+  .question__item {
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+  }
+  .question__card {
+    height: 115px;
+  }
+  .question__btn-text {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 518px;
+    letter-spacing: 1.2px;
+  }
+  .question__icon {
+    margin-right: 0;
+  }
+  /* footer */
+  .footer {
+    margin-top: 56px;
+  }
+  .footer__block_indent {
+    margin-bottom: 54px;
+  }
+  .footer__title {
+    margin-bottom: 20px;
+  }
+  .footer__block-btn {
+    margin-top: 10px;
+  }
+  .footer__social {
+    margin-top: 11px;
+  }
+}
