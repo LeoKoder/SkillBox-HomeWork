@@ -541,6 +541,16 @@ details > summary {
   .footer__btn_size {
     width: 260px;
   }
+  .about-us__element {
+    padding: 50px 0 40px 31px;
+  }
+  .about-us__description {
+    font-size: 14px;
+  }
+  .about-us__img {
+    width: 117px;
+    margin-right: 25px;
+  }
 }
 
 /* 1439px */
@@ -554,6 +564,13 @@ details > summary {
   }
   .about-us__banner {
     flex-basis: 100%;
+  }
+  .about-us__element {
+    padding: 67px 0 63px 63px;
+  }
+  .about-us__img {
+    width: 178px;
+    margin-right: 60px;
   }
   .about-us__content {
     flex-basis: 100%;
