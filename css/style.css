@@ -29,12 +29,16 @@
 
 html,
 body {
-  min-width: 1920px;
+  max-width: 1920px;
   margin: 0;
   padding: 0;
   background-color: #e5e5e5;
   font-family: "Monserrat", sans-serif, Arial;
   overflow-x: hidden;
+}
+
+body {
+  margin: 0 auto;
 }
 
 a {
@@ -52,7 +56,8 @@ ul {
 
 /* Стилизация контейнера */
 .container {
-  width: 1770px;
+  max-width: 1770px;
+  padding: 0;
   margin: 0 auto;
 }
 
@@ -145,15 +150,24 @@ a:hover {
 /* Стилизация Главной секции */
 .first-section__container {
   display: flex;
+  position: relative;
   flex-direction: column;
   flex: 0 2 100%;
   height: 620px;
-  padding: 103px 0 0 78px;
-  background-image: url("../img/banner.jpg");
-  background-repeat: no-repeat;
+  padding: 103px 0 0 82px;
+}
+
+.first-section__banner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 .first-section__block {
+  position: absolute;
   width: 842px;
   margin-bottom: 75px;
 }
@@ -174,8 +188,11 @@ a:hover {
   font-weight: 700;
 }
 
-.first-section__btn {
+.first-section__button {
+  position: absolute;
   display: block;
+  bottom: 90px;
+  z-index: 1;
 }
 
 /* Стилизация секции О нас */
@@ -591,6 +608,9 @@ details > summary {
     display: flex;
     justify-content: space-between;
   }
+  #footer-checkbox {
+    width: 302px;
+  }
   .footer__block_position {
     display: none;
   }
@@ -634,6 +654,9 @@ details > summary {
     height: 668px;
     background-size: cover;
   }
+  .first-section__banner {
+    background-size: cover;
+  }
   .first-section__block {
     width: 708px;
     margin-bottom: 88px;
@@ -649,6 +672,7 @@ details > summary {
   }
   .first-section__button {
     width: 287px;
+    bottom: 113px;
   }
   /* О нас */
   .about-us {
@@ -1014,7 +1038,7 @@ details > summary {
     padding-top: 0;
   }
   .question__card {
-    height: 115px;
+    height: 100%;
   }
   .question__btn-text {
     margin-top: 0;
@@ -1040,5 +1064,340 @@ details > summary {
   }
   .footer__social {
     margin-top: 11px;
+  }
+}
+
+/* 745px */
+@media (max-width: 745px) {
+  .container {
+    width: 550px;
+  }
+  .section__subtitle {
+    font-size: 16px;
+  }
+  .first-section__container {
+    padding-left: 0;
+  }
+  .first-section__block {
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .first-section__description {
+    width: 100%;
+  }
+  .first-section__button {
+    align-self: center;
+  }
+  .about-us__banner {
+    background-position: 60% 50%;
+  }
+  .about-us__banner-content {
+    width: 620px;
+    font-size: 14px;
+  }
+  .about-us__btn {
+    margin: 35px 10px 0 12px;
+  }
+  .about-us__element-description {
+    font-size: 14px;
+  }
+  .our-work__description {
+    font-size: 14px;
+  }
+}
+
+/* 572px */
+@media (max-width: 572px) {
+  .section__title {
+    font-size: 24px;
+  }
+  .container {
+    width: 420px;
+  }
+  .header__block_size {
+    display: none;
+  }
+  .header__container {
+    flex-direction: row-reverse;
+  }
+  .header__block {
+    flex-basis: 92%;
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+  .first-section__container {
+    height: 440px;
+  }
+  .first-section__title {
+    margin-top: 0;
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .first-section__block {
+    margin-bottom: 34px;
+  }
+  .first-section__button {
+    bottom: 40px;
+  }
+  .about-us__block {
+    margin-top: 5px;
+  }
+  .about-us__banner {
+    height: 454px;
+    background-size: contain;
+    background-position: 0 0;
+  }
+  .about-us__description-banner {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .about-us__banner-content {
+    width: 100%;
+    color: #333;
+  }
+  .about-us__btn {
+    margin: 8px 0 0 0;
+    color: var(--bg-btn);
+  }
+  .about-us__element {
+    width: 420px;
+    flex-direction: column;
+    border: none;
+    padding: 0;
+  }
+  .about-us__element-content {
+    width: 100%;
+  }
+  .our-work__steps {
+    justify-content: center;
+  }
+  .our-work__step-link {
+    font-size: 12px;
+  }
+  .question__btn-text {
+    font-size: 14px;
+    width: 260px;
+  }
+  .footer {
+    padding-bottom: 25px;
+  }
+  .footer__input {
+    width: 100%;
+  }
+  .footer__block-btn {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .footer__btn_size {
+    margin-bottom: 20px;
+  }
+  .footer__check_label {
+    font-size: 16px;
+  }
+  .footer__block_indent {
+    border-bottom: 1px solid #595959;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+  }
+  .footer__block-logo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* 420px */
+@media (max-width: 420px) {
+  .section__subtitle {
+    font-size: 18px;
+    font-family: "Monserrat";
+    color: #333;
+  }
+  .container {
+    width: 290px;
+  }
+  .header__container {
+    height: 45px;
+  }
+  .header__logo {
+    width: 97px;
+    height: 30px;
+  }
+  .header__burger {
+    width: 25px;
+    height: 19px;
+    background-size: contain;
+  }
+  .first-section__container {
+    height: 262px;
+    align-items: center;
+  }
+  .first-section__block {
+    height: 175px;
+    margin-top: 8px;
+    padding: 0;
+    width: 262px;
+  }
+  .first-section__title {
+    width: 100%;
+    font-size: 19px;
+    line-height: 24.38px;
+    letter-spacing: 0.8px;
+  }
+  .first-section__description {
+    margin-top: 7px;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 15.62px;
+  }
+  .first-section__button {
+    width: 162px;
+    height: 40px;
+    padding-top: 12px;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    bottom: 41px;
+  }
+  .about-us {
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+  .about-us__description {
+    margin-top: 3px;
+    line-height: 28px;
+  }
+  .about-us__banner {
+    height: 208px;
+  }
+  .about-us__banner-content {
+    line-height: 28px;
+  }
+  .about-us__description-banner {
+    height: 0px;
+    padding: 0;
+  }
+  .about-us__element {
+    width: 100%;
+  }
+  .about-us__element:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  .about-us__element-title {
+    margin-top: 11px;
+  }
+  .about-us__element-content {
+    line-height: 23px;
+  }
+  .about-us__element-title {
+    margin-top: 10px;
+  }
+  .about-us__element-description {
+    margin-top: 5px;
+    line-height: 27.5px;
+  }
+  .about-us__content {
+    margin-top: 231px;
+  }
+  .about-us__img {
+    width: 64px;
+    margin: 0;
+    transform: translateY(0px);
+  }
+  .about-us__btn {
+    margin-top: 11px;
+    padding: 10px 0;
+    width: 162px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .our-work {
+    margin-top: 40px;
+    margin-bottom: 39px;
+  }
+  .our-work__title {
+    margin-top: 54px;
+    margin-bottom: 34px;
+  }
+  .our-work__steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 17px;
+  }
+  .our-work__step-item:not(:last-child) {
+    margin-right: 0px;
+  }
+  .our-work__img {
+    margin-top: 0;
+    margin-bottom: 0;
+    min-height: 172px;
+    background-size: contain;
+  }
+  .our-work__description {
+    margin-top: 4px;
+    line-height: 28.45px;
+    margin-bottom: 8px;
+  }
+  .our-work__btn {
+    width: 162px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+  }
+  .our-work__btn:last-child {
+    width: 118px;
+    height: 40px;
+    padding: 0;
+    margin-left: 5px;
+    font-size: 12px;
+  }
+  .question__container {
+    margin-top: 0px;
+  }
+  .question__title {
+    margin: 0;
+  }
+  .question__item {
+    padding: 0;
+  }
+  .question__btn-text {
+    width: 245px;
+    line-height: 23px;
+    letter-spacing: normal;
+  }
+  .question__icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+  }
+  .question__card-body {
+    font-size: 12px;
+  }
+  .footer {
+    margin-top: 39px;
+  }
+  .footer__btn_size {
+    width: 180px;
+    height: 40px;
+    padding: 0;
+    font-size: 12px;
+  }
+  .footer__icon {
+    width: 34px;
+    height: 34px;
+    margin-right: 0;
+    background-size: contain;
+  }
+  .footer__icon:not(:last-child) {
+    margin-right: 13px;
+  }
+  .footer__logo {
+    width: 130px;
+    height: 40px;
   }
 }
