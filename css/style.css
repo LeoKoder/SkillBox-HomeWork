@@ -32,7 +32,7 @@ body {
   max-width: 1920px;
   margin: 0;
   padding: 0;
-  background-color: #e5e5e5;
+  background-color: #fff;
   font-family: "Monserrat", sans-serif, Arial;
   overflow-x: hidden;
 }
@@ -45,6 +45,14 @@ a {
   text-decoration: none;
 }
 
+a:focus,
+.btn:focus,
+span.footer__icon:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid blue;
+}
+
 img {
   max-width: 100%;
 }
@@ -52,6 +60,10 @@ img {
 ul {
   padding: 0;
   list-style: none;
+}
+
+fieldset {
+  border: none;
 }
 
 /* Стилизация контейнера */
@@ -99,7 +111,7 @@ a:hover {
   flex-basis: 50%;
 }
 
-.header__burger {
+.burger__block {
   display: none;
 }
 
@@ -127,7 +139,6 @@ a:hover {
   font-size: calc(var(--font-menu) - 1px);
   font-weight: 600;
   letter-spacing: 1px;
-  padding-bottom: 2px;
   color: #333;
 }
 
@@ -136,25 +147,27 @@ a:hover {
 }
 
 .search {
-  display: block;
   height: 25px;
   width: 25px;
   margin: 0 12px;
+  border: none;
+  text-align: center;
+  background-color: #e5e5e5;
   background-image: url("../img/search.svg");
 }
 
 .search:hover {
   background-image: url("../img/search_hover.svg");
+  transform: translateY(-5px);
+  cursor: pointer;
 }
 
 /* Стилизация Главной секции */
 .first-section__container {
   display: flex;
-  position: relative;
   flex-direction: column;
   flex: 0 2 100%;
   height: 620px;
-  padding: 103px 0 0 82px;
 }
 
 .first-section__banner {
@@ -169,7 +182,9 @@ a:hover {
 .first-section__block {
   position: absolute;
   width: 842px;
-  margin-bottom: 75px;
+  z-index: 2;
+  top: 101px;
+  left: 78px;
 }
 
 .first-section__title {
@@ -181,7 +196,7 @@ a:hover {
 }
 
 .first-section__description {
-  margin-top: 25px;
+  margin-top: 22px;
   font-size: 25px;
   color: #fff;
   line-height: 27.6px;
@@ -192,9 +207,18 @@ a:hover {
   position: absolute;
   display: block;
   bottom: 90px;
+  left: 78px;
+  border: 1px solid var(--bg-btn);
   z-index: 1;
 }
+.first-section__button:hover {
+  cursor: pointer;
+  background-color: #ffc165;
+}
 
+.swiper-pagination {
+  display: none;
+}
 /* Стилизация секции О нас */
 .about-us {
   margin: 102px 0 25px 0;
@@ -276,7 +300,7 @@ a:hover {
 
 .about-us__element {
   display: flex;
-  padding: 67px 0 60px 63px;
+  padding: 52px 0 60px 63px;
   border: 1px solid #cacaca;
   flex: 0 2 50%;
 }
@@ -288,46 +312,63 @@ a:hover {
 .about-us__element-content {
   width: 460px;
   line-height: 32px;
+  margin-left: 36px;
 }
 
 .about-us__element-description {
   margin: 0;
+  margin-top: 5px;
 }
 
 .about-us__img {
-  transform: translateY(-15px);
-  margin-right: 60px;
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+}
+
+.about-us__element-icon1 {
+  transform: translateY(6px);
+  background-image: url("../img/about-us-img1.svg");
+}
+.about-us__element-icon2 {
+  transform: translateY(-12px);
+  background-image: url("../img/about-us-img2.svg");
 }
 
 /* Стилизация секции Как мы работаем */
 .our-work {
-  margin: 96px 0 55px 0;
+  margin: 70px 0 55px 0;
 }
 
-.our-work__steps {
-  display: inline-block;
-  margin-bottom: 48px;
+.our-work__title {
+  margin-bottom: 50px;
 }
 
-.our-work__step-item:not(:last-child) {
-  margin-right: 89px;
+.our-work__list {
+  display: flex;
+  justify-content: space-between;
+  width: 480px;
 }
 
-.our-work__step-link {
+.our-work__link {
+  border: none;
+  background-color: #e5e5e5;
   color: #333;
   font-size: calc(var(--font-description) + 2px);
 }
 
-.our-work__step-link:hover {
+.our-work__link:hover {
   color: var(--bg-btn);
+  cursor: pointer;
 }
 
-.our-work__step-link_active {
+.our-work__link_active {
   color: var(--bg-btn);
 }
 
 .our-work__block {
   display: flex;
+  margin-top: 45px;
 }
 
 .our-work__element {
@@ -340,18 +381,22 @@ a:hover {
 
 .our-work__description {
   width: 758px;
-  margin-top: 4px;
+  margin-top: 5px;
   font-size: var(--font-description);
-  line-height: 32.45px;
+  line-height: 32.8px;
 }
 
 .our-work__block-btn {
-  margin-top: 69px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 63px;
 }
 
 .our-work__btn {
-  margin: 0px 21px 0px 2px;
+  margin: 0px 26px 0px 2px;
   border: none;
+  padding: 0;
+  align-items: center;
   font-size: var(--font-description);
   height: 59px;
   width: 177px;
@@ -360,12 +405,16 @@ a:hover {
 .our-work__btn:last-child {
   width: 147px;
   height: 59px;
-  padding-top: 16px;
-  padding-bottom: 6px;
   font-size: 16px;
   color: #000;
   border: 1px solid #000;
   background-color: #e5e5e5;
+}
+
+.our-work__btn:last-child:hover {
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
 }
 
 .our-work__img {
@@ -373,45 +422,30 @@ a:hover {
 }
 
 /* Стилизация секции Часто задаваемые вопросы */
-.question__container {
-  margin-top: 100px;
+.question {
+  margin-top: 102px;
 }
 
-/* Убираем стандартный маркер Chrome */
-details summary::-webkit-details-marker {
-  display: none;
-}
-/* Убираем стандартный маркер Firefox */
-details > summary {
-  list-style: none;
+/* Стилизация аккордиона */
+#accordion {
+  font-family: "MonserratBold";
+  letter-spacing: -1.7px;
 }
 
-.question__item {
+#accordion .accordion__section {
   display: flex;
   height: 114px;
   justify-content: space-between;
+  padding: 0;
   align-items: center;
-  border-bottom: 1px solid #cacaca;
-  padding-left: 4px;
+  border-right: none;
+  border-left: none;
+  background-color: #fff;
+  margin: 0;
 }
 
-.question__item:focus {
-  outline: none;
-}
-
-.question__btn-text {
-  cursor: pointer;
-  color: #333;
-}
-
-.question__btn-text:hover {
-  color: var(--bg-btn);
-}
-
-.question__card-body {
-  color: #333;
-  font-size: var(--font-description);
-  line-height: 32px;
+#accordion .accordion__title {
+  font-size: 27px;
 }
 
 .question__icon {
@@ -420,6 +454,7 @@ details > summary {
   height: 50px;
   cursor: pointer;
   background-image: url("../img/question-icon.svg");
+  background-repeat: no-repeat;
 }
 
 .question__icon:hover {
@@ -450,34 +485,35 @@ details > summary {
 }
 
 .footer__social {
-  display: flex;
-  margin-top: 118px;
-}
-
-.footer__icon {
-  width: 60px;
+  width: 234px;
   height: 60px;
-  margin-right: 25px;
+  display: flex;
+  margin-top: 115px;
 }
-
-.footer__social-facebook {
+.ic__facebook {
   background-image: url("../img/fb.svg");
 }
-
-.footer__social-vk {
+.ic__vk {
   background-image: url("../img/vk.svg");
 }
-
-.footer__social-instagramm {
+.ic__inst {
   background-image: url("../img/inst.svg");
 }
-
+.footer__icon {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  margin-right: 25px;
+}
 .footer__block_indent {
+  padding-top: 0;
   padding-left: 10px;
 }
 
 .footer__title {
-  margin: 13px 0 24px 0;
+  margin-top: 14px;
+  margin-bottom: 0;
   color: #cacaca;
 }
 
@@ -485,17 +521,21 @@ details > summary {
   padding-left: 24px;
   width: 571px;
   height: 60px;
-  margin-bottom: 25px;
+  margin-top: 6px;
+  margin-bottom: 1px;
+  border: none;
+  color: #cacaca;
   background-color: #414141;
+}
+
+#message {
+  padding-top: 22px;
+  height: 150px;
+  margin-bottom: 27px;
 }
 
 .footer__input::placeholder {
   color: #fff;
-}
-
-#footer__msg {
-  padding-top: 21px;
-  height: 150px;
 }
 
 .footer__btn_size {
@@ -504,6 +544,7 @@ details > summary {
   height: 63px;
   font-size: 17px;
   font-weight: 700;
+  border: 1px solid var(--bg-btn);
 }
 
 .footer__input_check {
@@ -529,10 +570,18 @@ details > summary {
   background-size: 50% 50%;
 }
 
+.footer__block-btn input[type="checkbox"]:focus + label::before {
+  outline: 2px solid blue;
+}
+
 /* стили для чекбокса, находящегося в состоянии checked */
 .footer__input_check:checked + label::before {
   background-color: #222;
   background-image: url("../img/checked.svg");
+}
+
+.label_visible {
+  visibility: hidden;
 }
 
 .footer__block_position {
@@ -565,7 +614,6 @@ details > summary {
     font-size: 14px;
   }
   .about-us__img {
-    width: 117px;
     margin-right: 25px;
   }
 }
@@ -604,6 +652,9 @@ details > summary {
   .our-work__description {
     max-width: 100%;
   }
+  #accordion .accordion__title {
+    font-size: 23px;
+  }
   .footer__container {
     display: flex;
     justify-content: space-between;
@@ -625,26 +676,83 @@ details > summary {
   .header__container {
     align-items: center;
   }
+  .burger__block {
+    display: flex;
+    margin-left: 0;
+    position: relative;
+  }
   .header__burger {
-    display: block;
-    margin-left: 2px;
-    width: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #e5e5e5;
+    width: 30px;
     height: 23px;
     background-image: url("../img/burger.svg");
+  }
+
+  .header__burger:hover {
+    background-image: url("../img/burger-hover.svg");
+    cursor: pointer;
+  }
+
+  .burger__menu {
+    position: absolute;
+    z-index: 10;
+    top: -40px;
+    bottom: 0;
+    left: -50px;
+    width: 419px;
+    height: 769px;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #000;
+    transition: transform 0.3 ease-in-out;
+    transform: translateX(-349%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .burger__menu.is-active {
+    transform: none;
+  }
+
+  .burger__close {
+    width: 27px;
+    height: 24px;
+    transform: translateX(6px);
+    background-image: url("../img/close.svg");
+  }
+  .burger__close:hover {
+    cursor: pointer;
+    background-image: url("../img/close-hover.svg");
+    background-repeat: no-repeat;
+  }
+  .burger__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 95px;
+    margin-left: 32px;
+  }
+  .burger__item {
+    height: 94px;
+  }
+  .burger__link {
+    font-size: 23px;
+    font-family: "MonserratBold";
+    color: #333;
   }
   .header__list {
     display: none;
     width: 0;
   }
   .header__block_position {
-    margin-left: 20px;
+    flex-basis: 20%;
+    margin-left: 0px;
   }
   .header_img {
     width: 150px;
-  }
-  .header__block_position {
-    flex-basis: 63%;
-    justify-content: flex-end;
   }
   .search {
     margin-right: 0px;
@@ -659,24 +767,34 @@ details > summary {
   }
   .first-section__block {
     width: 708px;
-    margin-bottom: 88px;
+    top: 158px;
+    left: 45px;
   }
   .first-section__title {
     font-size: 61px;
     line-height: 76.79px;
   }
   .first-section__description {
-    margin-top: 6px;
+    margin-top: 4px;
     font-size: 20px;
     line-height: 25.6px;
+    letter-spacing: 0.6px;
   }
   .first-section__button {
     width: 287px;
     bottom: 113px;
+    left: 46px;
+  }
+  .swiper-pagination {
+    display: block;
   }
   /* О нас */
   .about-us {
     margin: 61px 0 25px 0;
+  }
+  .about-us__description {
+    font-size: 16px;
+    line-height: 32px;
   }
   .about-us__block {
     display: flex;
@@ -711,19 +829,30 @@ details > summary {
     margin-top: 30px;
   }
   .about-us__element {
-    padding: 65px 0 65px 112px;
+    padding: 65px 0 28px 112px;
   }
   .about-us__element:not(:last-child) {
     margin-bottom: 40px;
   }
   .about-us__img {
-    transform: translateY(0px);
+    margin-right: 22px;
+  }
+  .about-us__element-icon2 {
+    transform: translateY(-4px);
   }
   .about-us__element-description {
     margin-top: 3px;
   }
   .our-work {
-    margin: 61px 0 51px 0;
+    margin: 60px 0 51px 0;
+  }
+
+  .our-work__container {
+    margin-left: 46px;
+  }
+  .our-work__block {
+    margin-top: 48px;
+    margin-left: 4px;
   }
   .our-work__img {
     width: 437px;
@@ -732,11 +861,15 @@ details > summary {
     margin-top: 10px;
   }
   .our-work__description {
-    margin-top: 6px;
-    width: 421px;
+    line-height: 32px;
+    margin-top: 5px;
+    width: 437px;
   }
   .our-work__block-btn {
     margin-top: 30px;
+  }
+  .question {
+    margin-top: 60px;
   }
   .question__container {
     margin-top: 0px;
@@ -744,18 +877,16 @@ details > summary {
   .question__title {
     margin-top: 60px;
   }
-  .question__item {
-    font-size: 20px;
-    margin-top: 0;
-    padding: 18px 0 0 3px;
+  #accordion .accordion__section {
+    height: 116px;
   }
-  .question__btn-text {
-    width: 747px;
-    margin-top: 17px;
-    line-height: 32px;
+  #accordion .accordion__title {
+    width: 746px;
+    font-size: 21px;
+    letter-spacing: -0.6px;
   }
   .footer {
-    margin-top: 70px;
+    margin-top: 60px;
   }
   .footer__block {
     flex-basis: 50%;
@@ -767,7 +898,9 @@ details > summary {
     width: 535px;
   }
   .footer__btn_size {
-    width: 245px;
+    padding-top: 20px;
+    width: 241px;
+    height: 58px;
   }
   .footer__input_check + label::before {
     margin-left: 9px;
@@ -795,9 +928,8 @@ details > summary {
   }
 
   .first-section__block {
-    padding-left: 23px;
     width: 842px;
-    margin-bottom: 88px;
+    left: 20px;
   }
 
   .first-section__title {
@@ -864,12 +996,11 @@ details > summary {
   .question__container {
     margin-top: 60px;
   }
-  .question__item {
-    padding-top: 20px;
-  }
-  .question__btn-text {
-    width: 500px;
-    font-size: 18px;
+  #accordion .accordion__title {
+    width: 514px;
+    font-size: 19px;
+    letter-spacing: 0.6px;
+    line-height: 33px;
   }
   .question__icon {
     margin-top: 2px;
@@ -916,17 +1047,28 @@ details > summary {
   }
   .header__container {
     height: 69px;
+    justify-content: space-between;
   }
   .header__block {
     display: flex;
     align-items: center;
+    flex-basis: 33.33%;
+    margin: 0;
   }
   .header__block_position {
-    margin-left: 50px;
+    width: 150px;
+    justify-content: center;
+    margin-left: 0;
+  }
+  .header__img {
+    width: 100%;
   }
   .header__burger {
-    width: 40px;
-    margin-bottom: 3px;
+    padding: 0;
+    transform: translate(-4px, -2px);
+  }
+  .header__list {
+    display: none;
   }
   .search {
     width: 28px;
@@ -938,7 +1080,7 @@ details > summary {
     width: 768px;
     height: 700px;
     padding-top: 0;
-    padding-left: 50px;
+    padding-left: 42px;
   }
   .first-section__block {
     height: 72%;
@@ -947,17 +1089,20 @@ details > summary {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    top: 0;
+    left: 50px;
   }
   .first-section__title {
     margin-top: 100px;
     font-size: 60px;
     line-height: 74px;
+    letter-spacing: 0.6px;
   }
   .first-section__description {
     width: 658px;
-    letter-spacing: 1.5px;
     margin-top: 8px;
     font-size: 18px;
+    letter-spacing: 1.7px;
   }
   .first-section__button {
     align-self: flex-start;
@@ -966,6 +1111,8 @@ details > summary {
   /* Секция О нас */
   .about-us__description {
     width: 100%;
+    margin-left: 5px;
+    line-height: 32px;
   }
   .about-us__block {
     margin-top: 61px;
@@ -989,62 +1136,71 @@ details > summary {
     margin: 35px 33px 0 30px;
   }
   .about-us__content {
+    width: 100%;
     margin-top: 40px;
   }
   .about-us__element {
     height: 235px;
-    padding: 36px 0px 0px 31px;
+    padding: 34px 0px 0px 33px;
+  }
+  .about-us__element-content {
+    margin-left: 27px;
   }
   .about-us__element:not(:last-child) {
     margin-bottom: 41px;
   }
+
   .about-us__img {
     width: 117px;
-    transform: translateY(-22px);
-    margin-right: 30px;
+    background-size: contain;
+  }
+
+  .about-us__element-icon1 {
+    transform: translateY(36px);
+    margin-right: 0px;
+  }
+  .about-us__element-icon2 {
+    transform: translateY(30px);
+    margin-right: 4px;
   }
   /* Секция Как мы работаем */
   .our-work {
-    margin-top: 62px;
+    margin-top: 56px;
   }
   .our-work__title {
-    margin-bottom: 50px;
+    margin-bottom: 51px;
   }
-  .our-work__steps {
+  .our-work__list {
     display: flex;
     justify-content: space-between;
     letter-spacing: 0.5px;
     width: 100%;
-    margin-bottom: 35px;
+  }
+
+  .our-work__consultation {
+    margin-left: 0;
   }
   .our-work__description {
     margin-top: 7px;
   }
+  .our-work__block {
+    margin-top: 34px;
+  }
   .our-work__block-btn {
-    margin-top: 16px;
+    margin-top: 14px;
   }
   /* Секция Часто задаваемыые вопросы */
+  .question {
+    margin-top: 64px;
+    margin-left: 4px;
+  }
   .question__title {
     width: 100%;
     font-size: calc(var(--font-title) - 2px);
     margin-top: 62px;
     letter-spacing: 0.3px;
     margin-left: 2px;
-    margin-bottom: 49px;
-  }
-  .question__item {
-    display: flex;
-    align-items: center;
-    padding-top: 0;
-  }
-  .question__card {
-    height: 100%;
-  }
-  .question__btn-text {
-    margin-top: 0;
-    margin-bottom: 0;
-    width: 518px;
-    letter-spacing: 1.2px;
+    margin-bottom: 40px;
   }
   .question__icon {
     margin-right: 0;
@@ -1053,17 +1209,50 @@ details > summary {
   .footer {
     margin-top: 56px;
   }
+  .footer__block-logo {
+    margin-left: 2px;
+  }
   .footer__block_indent {
-    margin-bottom: 54px;
+    margin-bottom: 57px;
+    margin-left: 4px;
   }
-  .footer__title {
-    margin-bottom: 20px;
-  }
-  .footer__block-btn {
-    margin-top: 10px;
+  .footer__input {
+    border: none;
   }
   .footer__social {
     margin-top: 11px;
+  }
+}
+/* 767px */
+@media (max-width: 767px) {
+  .header__container {
+    flex-direction: row-reverse;
+  }
+  .header__block {
+    flex-basis: 50%;
+  }
+  .header__block_position {
+    justify-content: flex-start;
+  }
+  .header__block_size {
+    display: none;
+  }
+  .burger__block {
+    justify-content: flex-end;
+  }
+  .burger__menu.is-active {
+    transform: none;
+  }
+  .header__burger {
+    border: none;
+    background-color: #e5e5e5;
+    width: 30px;
+    height: 23px;
+    background-image: url("../img/burger.svg");
+  }
+  .header__burger:hover {
+    background-image: url("../img/burger-hover.svg");
+    cursor: pointer;
   }
 }
 
@@ -1080,7 +1269,7 @@ details > summary {
   }
   .first-section__block {
     width: 100%;
-    padding: 0 20px;
+    left: 0;
     text-align: center;
   }
   .first-section__description {
@@ -1105,6 +1294,10 @@ details > summary {
   .our-work__description {
     font-size: 14px;
   }
+  #accordion .accordion__title {
+    width: 314px;
+    font-size: 15px;
+  }
 }
 
 /* 572px */
@@ -1115,16 +1308,14 @@ details > summary {
   .container {
     width: 420px;
   }
-  .header__block_size {
-    display: none;
+  .burger__menu {
+    height: 526px;
+    width: 284px;
   }
-  .header__container {
-    flex-direction: row-reverse;
-  }
-  .header__block {
-    flex-basis: 92%;
-    justify-content: flex-start;
-    margin-left: 0;
+  .burger__list {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 27px;
   }
   .first-section__container {
     height: 440px;
@@ -1145,6 +1336,7 @@ details > summary {
   }
   .about-us__banner {
     height: 454px;
+    background-repeat: no-repeat;
     background-size: contain;
     background-position: 0 0;
   }
@@ -1171,15 +1363,16 @@ details > summary {
   .about-us__element-content {
     width: 100%;
   }
-  .our-work__steps {
-    justify-content: center;
+
+  .about-us__element-icon1,
+  .about-us__element-icon2 {
+    transform: translateY(0px);
   }
-  .our-work__step-link {
+  .our-work__list {
+    justify-content: space-between;
+  }
+  .our-work__link {
     font-size: 12px;
-  }
-  .question__btn-text {
-    font-size: 14px;
-    width: 260px;
   }
   .footer {
     padding-bottom: 25px;
@@ -1209,6 +1402,9 @@ details > summary {
     flex-direction: column;
     align-items: center;
   }
+  .footer__icon {
+    width: 61px;
+  }
 }
 
 /* 420px */
@@ -1229,8 +1425,26 @@ details > summary {
     height: 30px;
   }
   .header__burger {
+    transform: translate(0px);
     width: 25px;
     height: 19px;
+    background-size: contain;
+  }
+  .burger__menu {
+    width: 208px;
+    height: 335px;
+  }
+  .burger__item {
+    height: 50px;
+  }
+  .burger__link {
+    font-size: 16px;
+  }
+  .burger__close {
+    width: 19px;
+    height: 17px;
+    transform: translateX(0px);
+    background-repeat: no-repeat;
     background-size: contain;
   }
   .first-section__container {
@@ -1238,21 +1452,25 @@ details > summary {
     align-items: center;
   }
   .first-section__block {
-    height: 175px;
-    margin-top: 8px;
+    height: 190px;
     padding: 0;
-    width: 262px;
+    margin: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
   .first-section__title {
     width: 100%;
     font-size: 19px;
     line-height: 24.38px;
     letter-spacing: 0.8px;
+    margin-bottom: 5px;
   }
   .first-section__description {
-    margin-top: 7px;
+    width: 242px;
     font-size: 12px;
     letter-spacing: 0;
+    margin-top: 0;
     line-height: 15.62px;
   }
   .first-section__button {
@@ -1261,7 +1479,7 @@ details > summary {
     padding-top: 12px;
     letter-spacing: 0.5px;
     font-size: 12px;
-    bottom: 41px;
+    left: 63px;
   }
   .about-us {
     margin-top: 40px;
@@ -1269,45 +1487,57 @@ details > summary {
   }
   .about-us__description {
     margin-top: 3px;
+    margin-left: 0;
     line-height: 28px;
+    font-size: 14px;
   }
   .about-us__banner {
-    height: 208px;
+    height: 204px;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .about-us__banner-content {
     line-height: 28px;
   }
   .about-us__description-banner {
-    height: 0px;
+    height: 0;
     padding: 0;
   }
   .about-us__element {
     width: 100%;
+    height: 279px;
   }
   .about-us__element:not(:last-child) {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
   .about-us__element-title {
     margin-top: 11px;
   }
   .about-us__element-content {
-    line-height: 23px;
+    line-height: 23.6px;
+    margin-left: 0;
+  }
+  .about-us__img {
+    width: 65px;
+    height: 53px;
+    margin-left: 0;
+    background-size: contain;
+  }
+  .about-us__element-icon2 {
+    transform: translateY(0);
   }
   .about-us__element-title {
-    margin-top: 10px;
+    margin-top: 13px;
   }
   .about-us__element-description {
     margin-top: 5px;
     line-height: 27.5px;
   }
   .about-us__content {
-    margin-top: 231px;
+    margin-top: 230px;
+    flex-basis: 100%;
   }
-  .about-us__img {
-    width: 64px;
-    margin: 0;
-    transform: translateY(0px);
-  }
+
   .about-us__btn {
     margin-top: 11px;
     padding: 10px 0;
@@ -1316,26 +1546,36 @@ details > summary {
     font-size: 12px;
   }
   .our-work {
-    margin-top: 40px;
-    margin-bottom: 39px;
+    margin-top: 54px;
+    margin-bottom: 0px;
+  }
+  .our-work__container {
+    margin-left: 15px;
   }
   .our-work__title {
     margin-top: 54px;
-    margin-bottom: 34px;
+    margin-bottom: 33px;
   }
-  .our-work__steps {
+  .our-work__list {
     display: flex;
     justify-content: space-between;
     margin-bottom: 17px;
   }
-  .our-work__step-item:not(:last-child) {
-    margin-right: 0px;
+  .our-work__link {
+    font-size: 15px;
+  }
+  .our-work__block {
+    margin-top: 18px;
+    margin-left: 0;
   }
   .our-work__img {
     margin-top: 0;
     margin-bottom: 0;
     min-height: 172px;
     background-size: contain;
+  }
+  .our-work__consultation {
+    margin-left: 0;
   }
   .our-work__description {
     margin-top: 4px;
@@ -1353,32 +1593,36 @@ details > summary {
     width: 118px;
     height: 40px;
     padding: 0;
-    margin-left: 5px;
+    margin-left: 9px;
     font-size: 12px;
+  }
+  .question {
+    margin-top: 41px;
+    margin-left: 0;
   }
   .question__container {
     margin-top: 0px;
   }
   .question__title {
-    margin: 0;
+    margin: 0 0 15px 0;
   }
-  .question__item {
-    padding: 0;
+  #accordion .accordion__section {
+    height: 106px;
   }
-  .question__btn-text {
-    width: 245px;
-    line-height: 23px;
-    letter-spacing: normal;
+  #accordion .accordion__title {
+    width: 225px;
+    font-family: "Monserrat";
+    font-size: 13px;
+    letter-spacing: 0.7px;
+    line-height: 24px;
   }
   .question__icon {
     width: 30px;
     height: 30px;
     background-size: contain;
   }
-  .question__card-body {
-    font-size: 12px;
-  }
   .footer {
+    padding-top: 25px;
     margin-top: 39px;
   }
   .footer__btn_size {
@@ -1386,6 +1630,15 @@ details > summary {
     height: 40px;
     padding: 0;
     font-size: 12px;
+  }
+  .footer__block_indent {
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 26px;
+    padding-bottom: 26px;
+  }
+  #message {
+    margin-bottom: 20px;
   }
   .footer__icon {
     width: 34px;
@@ -1396,8 +1649,16 @@ details > summary {
   .footer__icon:not(:last-child) {
     margin-right: 13px;
   }
+  .footer__input_check + label::before {
+    margin-left: 0;
+  }
   .footer__logo {
     width: 130px;
     height: 40px;
+  }
+  .footer__social {
+    justify-content: space-between;
+    width: 132px;
+    margin-top: 18px;
   }
 }
