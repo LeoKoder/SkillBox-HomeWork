@@ -32,7 +32,7 @@ body {
   max-width: 1920px;
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: #e5e5e5;
   font-family: "Monserrat", sans-serif, Arial;
   overflow-x: hidden;
 }
@@ -124,6 +124,7 @@ a:hover {
 
 .header__list {
   display: flex;
+  -moz-display: flex;
   width: 700px;
   height: 100%;
   align-items: center;
@@ -132,7 +133,7 @@ a:hover {
 }
 
 .header__item:not(:last-child) {
-  margin-right: 83px;
+  margin-right: 79px;
 }
 
 .header__link {
@@ -277,6 +278,7 @@ a:hover {
 
 .about-us__btn {
   display: flex;
+  -moz-display: flex;
   margin: 35px 15px 0 70px;
   align-items: center;
   justify-content: center;
@@ -295,6 +297,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   flex: 0 1 50%;
+  -moz-flex: 0 1 50%;
   margin-left: 30px;
 }
 
@@ -350,23 +353,27 @@ a:hover {
   width: 480px;
 }
 
-.our-work__link {
+.tabs__btn {
   border: none;
   background-color: #e5e5e5;
   color: #333;
   font-size: calc(var(--font-description) + 2px);
 }
 
-.our-work__link:hover {
+.tabs__btn:hover {
   color: var(--bg-btn);
   cursor: pointer;
 }
 
-.our-work__link_active {
-  color: var(--bg-btn);
+.tab-content {
+  display: none;
 }
 
-.our-work__block {
+.tab-content-active {
+  display: block;
+}
+
+.tab-content__item {
   display: flex;
   margin-top: 45px;
 }
@@ -379,7 +386,7 @@ a:hover {
   margin-right: 20px;
 }
 
-.our-work__description {
+.tab-content__description {
   width: 758px;
   margin-top: 5px;
   font-size: var(--font-description);
@@ -440,7 +447,7 @@ a:hover {
   align-items: center;
   border-right: none;
   border-left: none;
-  background-color: #fff;
+  background-color: #e5e5e5;
   margin: 0;
 }
 
@@ -535,6 +542,9 @@ a:hover {
 }
 
 .footer__input::placeholder {
+  color: #fff;
+}
+.footer__input::-moz-placeholder {
   color: #fff;
 }
 
@@ -646,10 +656,10 @@ a:hover {
     background-position: 50% 0;
     background-size: cover;
   }
-  .our-work__consultation {
+  .tab-content__left {
     max-width: 50%;
   }
-  .our-work__description {
+  .tab-content__description {
     max-width: 100%;
   }
   #accordion .accordion__title {
@@ -848,9 +858,10 @@ a:hover {
   }
 
   .our-work__container {
-    margin-left: 46px;
+    justify-content: center;
   }
-  .our-work__block {
+
+  .tab-content__item {
     margin-top: 48px;
     margin-left: 4px;
   }
@@ -860,7 +871,7 @@ a:hover {
     margin-left: 50px;
     margin-top: 10px;
   }
-  .our-work__description {
+  .tab-content__description {
     line-height: 32px;
     margin-top: 5px;
     width: 437px;
@@ -963,7 +974,7 @@ a:hover {
   .our-work {
     margin: 50px 0 50px 0;
   }
-  .our-work__block {
+  .tab-content__item {
     display: flex;
     flex-direction: column-reverse;
   }
@@ -972,10 +983,10 @@ a:hover {
     flex: 0 1 100%;
     flex-direction: column;
   }
-  .our-work__consultation {
+  .tab-content__left {
     max-width: 100%;
   }
-  .our-work__description {
+  .tab-content__description {
     width: 758px;
     margin-top: 4px;
     font-size: var(--font-description);
@@ -987,7 +998,6 @@ a:hover {
     min-height: 284px;
     margin-bottom: 40px;
     margin-left: 0px;
-    background-size: cover;
   }
   .our-work__block-btn {
     margin-top: 30px;
@@ -1177,13 +1187,13 @@ a:hover {
     width: 100%;
   }
 
-  .our-work__consultation {
+  .tab-content__left {
     margin-left: 0;
   }
-  .our-work__description {
+  .tab-content__description {
     margin-top: 7px;
   }
-  .our-work__block {
+  .tab-content__item {
     margin-top: 34px;
   }
   .our-work__block-btn {
@@ -1291,7 +1301,7 @@ a:hover {
   .about-us__element-description {
     font-size: 14px;
   }
-  .our-work__description {
+  .tab-content__description {
     font-size: 14px;
   }
   #accordion .accordion__title {
@@ -1364,6 +1374,9 @@ a:hover {
     width: 100%;
   }
 
+  .about-us__img {
+    height: 80px;
+  }
   .about-us__element-icon1,
   .about-us__element-icon2 {
     transform: translateY(0px);
@@ -1371,7 +1384,7 @@ a:hover {
   .our-work__list {
     justify-content: space-between;
   }
-  .our-work__link {
+  .tabs__btn {
     font-size: 12px;
   }
   .footer {
@@ -1549,9 +1562,6 @@ a:hover {
     margin-top: 54px;
     margin-bottom: 0px;
   }
-  .our-work__container {
-    margin-left: 15px;
-  }
   .our-work__title {
     margin-top: 54px;
     margin-bottom: 33px;
@@ -1561,23 +1571,22 @@ a:hover {
     justify-content: space-between;
     margin-bottom: 17px;
   }
-  .our-work__link {
+  .tabs__btn {
     font-size: 15px;
   }
-  .our-work__block {
+  .tab-content__item {
     margin-top: 18px;
     margin-left: 0;
   }
   .our-work__img {
     margin-top: 0;
     margin-bottom: 0;
-    min-height: 172px;
-    background-size: contain;
+    max-height: 172px;
   }
-  .our-work__consultation {
+  .tab-content__left {
     margin-left: 0;
   }
-  .our-work__description {
+  .tab-content__description {
     margin-top: 4px;
     line-height: 28.45px;
     margin-bottom: 8px;
